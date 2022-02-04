@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+    <meta http-equiv="X-UA-Compatable" content="ie=edge">
+
+    <title>Sales Prediction</title>
+
+    <!-- Stylesheets and CDNs -->
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/78360cb4a5.js" crossorigin="anonymous"></script>
+      <!-- Compiled and minified materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">      
+
+    <!-- Google fonts -->
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Exo&display=swap');
+      @import url('https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap');
+    </style>
+</head>
+<body>
+    <div class="navbar-fixed" id="home">
+        <nav class="grey darken-4">
+          <div class="container">
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo" style=" color: #e0e0e0; font-family: 'Archivo Narrow', sans-serif;">Sales Prediction App</span></a>
+              <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+              </a>
+              <ul class="right hide-on-med-and-down">
+                <li>
+                  <a href="https://github.com/Aniket-Mishra/Sales-Prediction" target="_blank">Git Repo</a>
+                </li>
+                <li>
+                  <a href="https://www.aniketm.tech" target="_blank">Website</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </div>
+    <ul class="sidenav" id="mobile-nav">
+        <li>
+            <a href="https://github.com/Aniket-Mishra/Sales-Prediction">Git Repo</a>
+        </li>
+        <li>
+            <a href="https://www.aniket-mishra.github.io" target="_blank">Website</a>
+        </li>
+    </ul>
+
+    <div class="container-body">
+        <div class="main-container" style="">
+            <div>
+                <p style="font-size: 2em; color: #222222;">MAKE PREDICTIONS</p>
+            </div>
+            <div class="form-div">
+                <form action="{{ url_for('predict')}}" method="post">
+                    <input type="text" name="rating" placeholder="Enter Rate" required="required">
+                    <input type="text" name="sales_in_month_1" placeholder="Enter Sales in Month 1">
+                    <input type="text" name="sales_in_month_2" placeholder="Enter Sales in Month 2">
+                    <button type="submit" class="btn waves-effect waves-light predict-button">
+                        Predict Sales in Month 3
+                    </button>
+                </form>
+                <p style="font-size: 1.2em; margin-top: 10px;"> {{ prediction_text }} </p>  
+            </div>
+        </div>   
+    </div>
+    <p style="color: black; padding-left: 20px;">If you can see this, refresh the page. (CTRL+SHIFT+R for chrome)</p>
+    <div class="footer-div">
+        <div style="width: 100%; text-align: center; height: 30px; background-color: #222222; position: absolute; bottom: 0;">
+            Made with <span style="color: red;">&#10084;</span>
+            
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- <script src="dist/assets/js/app.js"></script> -->
+    <script>
+        // Sidenav
+        const sideNav = document.querySelector('.sidenav');
+        M.Sidenav.init(sideNav, {});
+    </script>
+</body>
+</html>
